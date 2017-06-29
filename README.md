@@ -1,38 +1,29 @@
-# UIImageView
+# CALayer
 
 ## 概要
-UIImageViewは画像を表示するクラスです。
+CALayerは画像などのコンテンツ、アニメーション、影などビューの属性を管理するオブジェクトです。
 
 ## 関連クラス
-UIView,
-UIImage
-　
-## 実装手順
-1. StoryboardにUIViewとそのsubViewとしてUIImageViewを配置します。
-2. UIViewControllerとStoryboardのUIView・UIImageViewを関連付けます。
-3. png画像をAssets.xcassetsに追加します。
-4. StoryboardでUIImageViewに画像をセットします。
+UIView,UIImage
 
 ## 主要プロパティ
 
 |プロパティ名|説明|サンプル|
 |---|---|---|
-| `image` | `UIImage? { get set }` <br> `UIImageView`の内部に表示される画像| `imageView.image` |
-| `isHighlighted` | `Bool { get set }` <br> 画像がハイライト状態かどうか <br> `true`なら、`highlightedImage`・`highlightedAnimationImages`が表示される| `imageView.isHighlighted = !imageView.isHighlighted` |
-| `highlightedImage` | `UIImage? { get set }` <br> `UIImageView`の内部で表示される画像<br>| `imageView.highlightedImage = #imageLiteral(resourceName: "stv")` |
-| `animationImages` | `[UIImage]? { get set }` <br> `UIImageView`の内部で表示されるアニメーション画像の配列<br>`image`プロパティより優先される| `let animationImages:[UIImage] = [UIImage(named: "img_01")!, UIImage(named: "img_02")!, UIImage(named: "img_03")!]` <br> `loadingImageView.animationImages = animationImages`  <br> `loadingImageView.animationDuration = 1.5` <br> `loadingImageView.animationRepeatCount = 0` <br> `loadingImageView.startAnimating()` <br> `self.addSubview(loadingImageView)` |
-| `highlightedAnimationImages` | `[UIImage]? { get set }` <br> `UIImageView`の内部で表示されるアニメーション画像の配列<br>`highlightedImage `プロパティより優先される|`imageView.highlightedAnimationImages`|
+| `delegate` | `CALayerDelegate`に準拠するオブジェクト |  |
+| `layoutManager` | サブレイヤのレイアウトを担う |  |
+
 
 ## 主要メソッド
 
 |メソッド名|説明|サンプル|
 |---|---|---|
-|startAnimating() | アニメーションを開始する | imageView.startAnimating() |
-|stopAnimating() | アニメーションを停止する | imageView.stopAnimating() |
+|`addSublayer` | レイヤーを追加する。レイヤーは追加した順に積み重なる | `self.view.layer.addSublayer(layer)` |
+|`insertSublayer` | 任意の位置にサブレイヤーを追加する | `self.view.layer.layer.insertSublayer(layer2, at: 0)` |
 
 
 ## フレームワーク
-UIKit.framework
+CoreAnimation
 
 ## サポートOSバージョン
 iOS2.0以上
@@ -45,4 +36,5 @@ iOS2.0以上
 | iOS | 10.0〜 |
 
 ## 参考
-https://developer.apple.com/reference/uikit/uiimageview
+https://developer.apple.com/documentation/quartzcore/calayer
+https://developer.apple.com/jp/documentation/CoreAnimation_guide.pdf
