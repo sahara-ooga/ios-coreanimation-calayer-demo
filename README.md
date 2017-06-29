@@ -38,3 +38,4 @@ iOS2.0以上
 ## 参考
 https://developer.apple.com/documentation/quartzcore/calayer
 https://developer.apple.com/jp/documentation/CoreAnimation_guide.pdf
+http://qiita.com/ykyouhei/items/bbec22eb104f5cdf7a6f
